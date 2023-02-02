@@ -1,4 +1,4 @@
-## Regex  Notes ##
+# Regex  Notes #
 
 ## General ##
 `(|)` - Can use parenthesis in combination with pipe to specify multiple different patterns to match
