@@ -14,7 +14,8 @@
   - Inside of a character class, a `.` is treated as a literal, and won't actually work
 - `-` - Can use a dash to specify a UTF-16 range such as `[a-zA-Z0-9]`
 
-**All of the following can be used inside or outside of a character class**  
+**Note:**
+- All of the following can be used inside or outside of a character class
 
 ### Whitespace classes ###
 - `\s` - match a any type of white space character --> equivalent: `[ \t\v\r\n\f]`
@@ -38,5 +39,5 @@
 - `\w` - Any alphanumeric character and underscore --> equivalent: `[0-9A-Za-z_]`
 - `\W` - Non - alphanumeric character or underscore --> equivalent: `[^0-9A-Za-z_]`
 
-**Note: There is no shortcut for normal alphabetic characters**
-
+**Note:**
+- There is no shortcut for normal alphabetic characters
