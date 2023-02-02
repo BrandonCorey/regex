@@ -7,6 +7,18 @@
   - `[a-zA-Z][0-9]` - Can concatenate character classes like another other pattern (e.g first character alphabetic, second is digit)
   - `b[aou]t` - Another concatenation example
 
+### General Important Note ###
+- Whenever using any type of matching, matches cannot overlap
+- This means characters matched in one match cannot be used in another
+Ex)
+```javascript
+let regex = /\s...\s/gi;
+
+let str = 'Me and pat went to the stu'
+//           ^^^^^           ^^^^^
+// pat does not match as we used one of its matching characters in another match
+```
+
 ## Character class shortcuts ##
 
 - `^`- Negation character, will match everything that is not contained in character class
@@ -33,7 +45,9 @@
 - `\d` - Any decimal digit (0-9) --> equivalent: `[0-9]`
 - `\D` - Any character but a decimal digit --> equivalent: `[^0-9]`
 - `\h` - Any hexidecimal digit --> equivalent: `[0-9A-Fa-f]`
+  - **NOTE: THIS DOESN'T WORK IN JS**
 - `\H` - Any non-hexidecimal digit --> equivalent: `[^0-9A-Fa-f]`
+  - **NOTE: THIS DOESN'T WORK IN JS**
 
 ### Word characters ###
 - `\w` - Any alphanumeric character and underscore --> equivalent: `[0-9A-Za-z_]`
