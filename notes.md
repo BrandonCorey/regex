@@ -10,6 +10,7 @@
 ### General Important Note ###
 - Whenever using any type of matching, matches cannot overlap
 - This means characters matched in one match cannot be used in another
+
 Ex)
 ```javascript
 let regex = /\s...\s/gi;
