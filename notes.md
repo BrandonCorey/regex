@@ -7,7 +7,7 @@
   - `[a-zA-Z][0-9]` - Can concatenate character classes like another other pattern (e.g first character alphabetic, second is digit)
   - `b[aou]t` - Another concatenation example
 
-## character class shortcuts ##
+## Character class shortcuts ##
 
 - `^`- Negation character, will match everything that is not contained in character class
 - `.` - Will match all characters except newline. **Is NOT actually used inside a character class**

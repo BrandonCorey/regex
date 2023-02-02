@@ -1,13 +1,16 @@
 const matchArr = (arr, regex) => {
   let count = 0;
-  let matches = arr.filter(str => {
-    let total = str.match(regex)
-    total = total || [];
-    count += total.length;
+  let matches = arr.reduce((result, str) => {
 
-    return str.match(regex)
-  });
-  console.log({matches: matches, wordMatches: matches.length, totalMatches: count});
+    let matchArr = str.match(regex);
+    matchArr = matchArr || [];
+
+    count += matchArr.length;
+    result.push(...matchArr);
+  
+    return result;
+  }, []);
+  console.log({matches: matches, totalMatches: count});
 }
 
 module.exports = matchArr;
