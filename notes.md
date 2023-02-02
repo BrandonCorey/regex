@@ -56,3 +56,39 @@ let str = 'Me and pat went to the stu'
 
 **Note:**
 - There is no shortcut for normal alphabetic characters
+
+## Boundaries ##
+- `^` - Outside of a character class, denotes the start of a string
+- `$` - Denotes the end of the string
+- `\b` - word boundaries (words are matched by `\w`)
+- `\B\` - non-word boundaries (non-words are matched by `\W`)
+
+```javascript
+let regex = /^cat/gi;
+
+let str = 'catastrophe'
+//         ^^^------->
+let str = 'wildcat'
+//        <---_____  Doesn't match as the string doesnt start with cat
+```
+```javascript
+let regex = /cat$/gi;
+let str = 'catastrophe'
+//         ___-------> Does'nt match since it doesn't end with cat
+let str = 'wildcat'
+//        <----^^^ 
+```
+```javascript
+let regex = /\bcat\b/gi;
+
+let str = 'I feed my cat all the time. I love my cat, he is my favorite cat_.'
+//                   ^^^                         ^^^
+// Matches each time except last. Only matches cat with non word characters on each side
+```
+```javascript
+let regex = /\Bcat\B/gi;
+
+let str = 'This is a _cat. Another _cat_'
+//                                  ^^^
+// First cat only has one word charcter boundary, needs one on either side
+```
