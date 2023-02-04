@@ -92,3 +92,46 @@ let str = 'This is a _cat. Another _cat_'
 //                                  ^^^
 // First cat only has one word charcter boundary, needs one on either side
 ```
+
+## Quantifiers ##
+A way to specify how many times a match should occur
+- `*` - Match 0 or more occurences of the pattern to my left
+  - 0 or more essentially means the pattern may be omitted completely
+  - Because we include 0 occurences, will need to specify one more pattern than the minimum
+  - Ex --> 3 digits in a row --> `/\d\d\d\d*/`
+- `+` - Match 1 or more occurences of the pattern to my left
+  - Pattern must be present at least one time
+  - Ex --> 3 digits in a row --> `/\d\d\d+/`
+- `?` - Match a pattern to the left 0 or 1 times
+ - This specifies an optional pattern to match  
+- `p{m}` - Allows you to specify `m` occurences of pattern `p`
+  - `/\d{3}/` --> equivlanet `/\d\d\d/`
+- `p{m,}` - Allows you to specify `m` occurences or more of pattern `p`
+- `p{m, n}` - Allows you to specify `m` matches or more, but not more than `n`
+
+More ex)
+```javascript
+let regex0  = /1(234)*5/g;
+let string = '15'; // match
+let string2 = '12345678'; // match
+let string3 = '1234235'; // no match (ONLY allows 0 or more occurances of 234 between 1 and 5)
+```
+```javascript
+let regex0  = /1(234)+5/g;
+let string = '15'; // No match (ONLY allows 1 or more occurences of 234 between 1 and 5)
+let string2 = '12342345'; // match
+let string3 = '1234235'; // No match (ONLY allows 1 or more occurences of 234 between 1 and 5)
+```
+```javascript
+let regex0 = /1(234)?5/g;
+let string = '15'; // Match
+let string1 = '12345'; // match
+let string 2 = '12342345' // no match (occured more than once)
+```
+
+Say I wanted a match and number that started with 1, ended with 5, and had the sequence 234 atleast once, but also allows any other sequences inside as well
+Regex --> `/1(.+234).+5/`
+
+```javascript
+
+```
